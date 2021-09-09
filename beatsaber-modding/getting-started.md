@@ -47,3 +47,9 @@ It will then ask you for a template name put `Beatsaber Mod` here
 Now create a folder called somthing like `my-new-mod` make sure there aren't any spaces in the name of the folder or ndk will error when you try to build your mod
 
 Now go back to visual studio code and click on `File > Open Folder` and then select the folder that you just created
+
+Now you want to right click again and select `Create Project from Template` select this option and then click `Beatsaber Mod`
+
+Now enter the information it asks
+
+**Note: When it asks for `ndkpath` you need to give it the path of the folder where you downloaded Android NDK**
