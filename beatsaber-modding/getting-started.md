@@ -11,3 +11,9 @@ Here is a list of applications you will need to help you make a beatsaber mod:
 [Andriod ADB](https://developer.android.com/studio/releases/platform-tools)
 
 [Quest Package Manager](https://github.com/sc2ad/questpackagemanager)
+
+Once we have that we need a template to start a project:
+
+You can use: [LaurieTheFish's Template](https://github.com/Lauriethefish/quest-mod-template)
+
+Or you can setup each file indiviudally with me explaining what each file does [here!](./setup)
