@@ -69,3 +69,26 @@ There are two ways of using qpm
 ## Understanding The Hook System
 
 In beatsaber modding we use a system called hooking to interact with the game
+
+This is where the code i showed before comes in
+```cpp
+extern "C" void load() {
+    il2cpp_functions::Init();
+
+    getLogger().info("Installing hooks...");
+    // Install our hooks (none defined yet)
+    getLogger().info("Installed all hooks!");
+}
+```
+
+You want to add a line to this to get hooks running properly
+
+extern "C" void load() {
+    il2cpp_functions::Init();
+
+    LoggerContextObject logger = getLogger().WithContext("load");
+
+    getLogger().info("Installing hooks...");
+    // Install our hooks (none defined yet)
+    getLogger().info("Installed all hooks!");
+}
