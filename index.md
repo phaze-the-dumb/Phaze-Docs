@@ -1,3 +1,3 @@
 ## Welcome to Phaze Docs
 
-Theres all worts on here
+Theres all sorts on here
