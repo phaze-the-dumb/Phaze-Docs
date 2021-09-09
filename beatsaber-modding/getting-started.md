@@ -53,3 +53,5 @@ Now you want to right click again and select `Create Project from Template` sele
 Now enter the information it asks
 
 **Note: When it asks for `ndkpath` you need to give it the path of the folder where you downloaded Android NDK**
+
+# Now you have a basic mod template!
