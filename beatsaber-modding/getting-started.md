@@ -55,3 +55,5 @@ Now enter the information it asks
 **Note: When it asks for `ndkpath` you need to give it the path of the folder where you downloaded Android NDK**
 
 # Now you have a basic mod template!
+
+[Next](./starting-coding)
