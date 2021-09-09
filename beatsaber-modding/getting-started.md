@@ -12,6 +12,11 @@ Here is a list of applications you will need to help you make a beatsaber mod:
 
 [Quest Package Manager](https://github.com/sc2ad/questpackagemanager)
 
-Once we have that we need a template to start a project:
+###### Once we have that we need a template to start a project:
 
 We are going to use: [LaurieTheFish's Template](https://github.com/Lauriethefish/quest-mod-template)
+
+# Setup
+<a id="setup"></a>
+
+First of all you are going to need to download this template 
