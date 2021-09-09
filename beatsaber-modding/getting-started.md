@@ -14,6 +14,4 @@ Here is a list of applications you will need to help you make a beatsaber mod:
 
 Once we have that we need a template to start a project:
 
-You can use: [LaurieTheFish's Template](https://github.com/Lauriethefish/quest-mod-template)
-
-Or you can setup each file indiviudally with me explaining what each file does [here!](./setup)
+We are going to use: [LaurieTheFish's Template](https://github.com/Lauriethefish/quest-mod-template)
