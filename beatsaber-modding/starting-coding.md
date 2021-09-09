@@ -6,8 +6,7 @@
 ```cpp
 #include "main.hpp"
 ```
-This line imports the data from `include/main.hpp`
-
+This line imports the data from `include/main.hpp`<br>
 
 ```cpp
 Configuration& getConfig() {
@@ -16,8 +15,7 @@ Configuration& getConfig() {
     return config;
 }
 ```
-This loads the configuration
-
+This loads the configuration<br>
 
 ```cpp
 Logger& getLogger() {
@@ -25,8 +23,7 @@ Logger& getLogger() {
     return *logger;
 }
 ```
-This creates a "logger" which we can use to log data when we are debugging
-
+This creates a "logger" which we can use to log data when we are debugging<br>
 
 ```cpp
 extern "C" void setup(ModInfo& info) {
@@ -38,8 +35,7 @@ extern "C" void setup(ModInfo& info) {
     getLogger().info("Completed setup!");
 }
 ```
-This function runs while the game is loading (at the start)
-
+This function runs while the game is loading (at the start)<br>
 
 ```cpp
 extern "C" void load() {
@@ -50,5 +46,4 @@ extern "C" void load() {
     getLogger().info("Installed all hooks!");
 }
 ```
-This is where we can install our hooks and UI functions (this function is called slightly later than the previous)
-
+This is where we can install our hooks and UI functions (this function is called slightly later than the previous)<br>
