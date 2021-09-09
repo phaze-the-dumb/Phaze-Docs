@@ -43,3 +43,7 @@ Search `Project Templates`
 
 Install [this](https://marketplace.visualstudio.com/items?itemName=cantonios.project-templates) plugin
 
+Once it is installed you may have to restart visual studio code
+
+# Setting up the template
+
