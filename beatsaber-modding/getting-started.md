@@ -1,4 +1,4 @@
-# getting Started
+# Getting Started
 
 First of all we are going to need some software
 
