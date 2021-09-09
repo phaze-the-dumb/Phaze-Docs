@@ -16,22 +16,12 @@ Here is a list of applications you will need to help you make a beatsaber mod:
 
 We are going to use: [LaurieTheFish's Template](https://github.com/Lauriethefish/quest-mod-template)
 
-# Setup
-<a id="setup"></a>
+# Setting up the template
+<a id="template"></a>
 
-First of all you are going to need to download this template and then extract it into a folder called something like `my-new-mod` make sure there are no spaces in the name otherwise this will cause issues with ndk when you try to build your mod.
+Download and extract the template now open visual studio code
 
-Download it as a zip and extract it, you now need to copy the contents of the "template" folder into your new mod folder
-
-**Tip: you can use `ctrl+a` to select everything in a folder**
-
-Once you have copied it your folder should look something like this...
-
-![image](https://user-images.githubusercontent.com/57566773/132738870-0da6f127-fe20-4fca-b202-bde521c1151b.png)
-
-### Now open up Visual Studio Code or Visual Studio
-
-Click on `File > Open Folder` and then select the folder that you just created
+Click on `File > Open Folder` and then select the folder that you just downloaded
 
 Once the folder has opened you are going to have to click on this little icon right here
 
@@ -45,5 +35,15 @@ Install [this](https://marketplace.visualstudio.com/items?itemName=cantonios.pro
 
 Once it is installed you may have to restart visual studio code
 
-# Setting up the template
+Right click and press `Project: Save Project as Template`
 
+You are going to want to click on this option
+
+It will then ask you for a template name put `Beatsaber Mod` here
+
+# Setup
+<a id="setup"></a>
+
+Now create a folder called somthing like `my-new-mod` make sure there aren't any spaces in the name of the folder or ndk will error when you try to build your mod
+
+Now go back to visual studio code and click on `File > Open Folder` and then select the folder that you just created
