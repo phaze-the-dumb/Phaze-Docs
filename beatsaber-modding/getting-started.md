@@ -28,3 +28,18 @@ Download it as a zip and extract it, you now need to copy the contents of the "t
 Once you have copied it your folder should look something like this...
 
 ![image](https://user-images.githubusercontent.com/57566773/132738870-0da6f127-fe20-4fca-b202-bde521c1151b.png)
+
+### Now open up Visual Studio Code or Visual Studio
+
+Click on `File > Open Folder` and then select the folder that you just created
+
+Once the folder has opened you are going to have to click on this little icon right here
+
+![image](https://user-images.githubusercontent.com/57566773/132739318-647a99b5-bea6-4063-8d3f-94ed34feb510.png)
+
+This should bring you to a menu of "plugins" or "extensions"
+
+Search `Project Templates`
+
+Install [this](https://marketplace.visualstudio.com/items?itemName=cantonios.project-templates) plugin
+
