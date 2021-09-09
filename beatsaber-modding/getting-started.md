@@ -19,4 +19,5 @@ We are going to use: [LaurieTheFish's Template](https://github.com/Lauriethefish
 # Setup
 <a id="setup"></a>
 
-First of all you are going to need to download this template 
+First of all you are going to need to download this template and then extract it into a folder called something like `my-new-mod` make sure there are no spaces in the name otherwise this will cause issues with ndk when you try to build your mod
+
