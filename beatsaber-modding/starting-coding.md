@@ -8,6 +8,7 @@
 ```
 This line imports the data from `include/main.hpp`
 
+
 ```cpp
 Configuration& getConfig() {
     static Configuration config(modInfo);
@@ -17,6 +18,7 @@ Configuration& getConfig() {
 ```
 This loads the configuration
 
+
 ```cpp
 Logger& getLogger() {
     static Logger* logger = new Logger(modInfo);
@@ -24,6 +26,7 @@ Logger& getLogger() {
 }
 ```
 This creates a "logger" which we can use to log data when we are debugging
+
 
 ```cpp
 extern "C" void setup(ModInfo& info) {
@@ -37,6 +40,7 @@ extern "C" void setup(ModInfo& info) {
 ```
 This function runs while the game is loading (at the start)
 
+
 ```cpp
 extern "C" void load() {
     il2cpp_functions::Init();
@@ -47,3 +51,4 @@ extern "C" void load() {
 }
 ```
 This is where we can install our hooks and UI functions (this function is called slightly later than the previous)
+
