@@ -54,3 +54,17 @@ extern "C" void load() {
     getLogger().info("Installed all hooks!");
 }
 ```
+
+## Getting and Setting values
+
+To get a value you can just use
+```cpp
+getModConfig().VarName.GetValue();
+```
+and it will return the value off that variable
+
+To set a value you can use
+```cpp
+getModConfig.VarName.SetValue("My New Value");
+```
+This will set that value to `My New Value`
