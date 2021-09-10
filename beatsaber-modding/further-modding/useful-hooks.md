@@ -132,3 +132,12 @@ bool addedToHierarchy,
 bool screenSystemEnabling
 ```
 Return Type: `void`
+
+### QuestAppInit_AppStartAndMultiSceneEditorSetup
+Called when the game starts
+
+Args:
+```cpp
+QuestAppInit* self,
+```
+Return Type: `void`
