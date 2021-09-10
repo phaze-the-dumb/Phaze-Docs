@@ -142,5 +142,5 @@ void Init(GlobalNamespace::NoteData* noteData, float worldRotation, UnityEngine:
 
 These are the variables.
 
-**Note: if you are used to languages like python or javascript these `float`, `UnityEngine::Vector3` and `GlobalNamespace::NoteData*` may be knew to you, all these say is the type of the variable, if you have a type like `UnityEngine::Vector3` or `GlobalNamespace::NoteData*` you will need to include the file for that this is what we call "custom-types" which you may have seen before**
+**Note: if you are used to languages like python or javascript these `float`, `UnityEngine::Vector3` and `GlobalNamespace::NoteData*` may be knew to you, all these say is the type of the variable, if you have a type like `UnityEngine::Vector3` or `GlobalNamespace::NoteData*` you will need to include the file for that this is what we call "custom-types" which you may have seen before, If you need help with variables try [here](https://www.w3schools.com/cpp/cpp_variables.asp)**
 
