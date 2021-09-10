@@ -35,3 +35,9 @@ All this does is add `1.0f` onto the variable
 **Tip: `1.0f` basically means `1` here but the variable we are setting it to is a float so we need to keep the same value types**
 
 Now you can [build](../building) the mod
+
+---
+
+## Further Modding
+
+Find pages about further modding [here](./home)
