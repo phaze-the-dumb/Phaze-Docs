@@ -1,6 +1,6 @@
 # Quest UI
 
-Quest UI is a library designed to make, constructing Beatsaber UIs easier
+Quest UI is a library designed to make constructing Beatsaber UIs easier
 
 ---
 
