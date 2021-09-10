@@ -14,3 +14,4 @@ You can also run `./build.ps1` this will build the mod as a `.so` file
 
 And you can run `./buildQMOD.ps1` this will build a `.qmod` file for you
 
+[Next](./further-modding/finishing-the-mod)
