@@ -14,4 +14,8 @@ You can also run `./build.ps1` this will build the mod as a `.so` file
 
 And you can run `./buildQMOD.ps1` this will build a `.qmod` file for you
 
+# Logging
+
+You can log data to your visual studio code terminal with the `./start-logging.ps1` command but you can also use `./copy.ps1 --log` to log as soon as its starts the game
+
 [Next](./further-modding/finishing-the-mod)
