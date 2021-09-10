@@ -111,6 +111,7 @@ We are going to start by adding three new lines
 #include "GlobalNamespace/NoteController.hpp" // <--------
 #include "beatsaber-hook/shared/utils/hooking.hpp" // <--------
 
+using namespace GlobalNamespace; // <--------
 ...
 ```
 This imports the file that we were just talking about and also imports beatsaber hooks hooking system into our code so we can use it
