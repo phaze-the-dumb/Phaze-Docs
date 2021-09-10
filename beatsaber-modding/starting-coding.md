@@ -100,7 +100,7 @@ Now you can have a look in codegen for a hook
 
 To do this you need to open up the file path `extern/codegen/include/GlobalNamespace` in here you can find a list of files that we can hook into (mostly)
 
-For this example we are going to use the file `NoteController.hpp` to make any map into a 360 degree map
+For this example we are going to use the file `NoteController.hpp` to make any map into a 360 degree map as this hook runs whenever a note is spawned
 
 We are going to start by adding three new lines
 
@@ -142,5 +142,93 @@ void Init(GlobalNamespace::NoteData* noteData, float worldRotation, UnityEngine:
 
 These are the variables.
 
-**Note: if you are used to languages like python or javascript these `float`, `UnityEngine::Vector3` and `GlobalNamespace::NoteData*` may be knew to you, all these say is the type of the variable, if you have a type like `UnityEngine::Vector3` or `GlobalNamespace::NoteData*` you will need to include the file for that this is what we call "custom-types" which you may have seen before, If you need help with variables try [here](https://www.w3schools.com/cpp/cpp_variables.asp)**
+**Note: if you are used to languages like python or javascript these `float`, `UnityEngine::Vector3` and `GlobalNamespace::NoteData*` may be knew to you, all these say is the type of the variable, if you have a type like `GlobalNamespace::NoteData*` you will need to include the file for that this is what we call "custom-types" which you may have seen before, If you need help with variables try [here](https://www.w3schools.com/cpp/cpp_variables.asp)**
 
+The custom types we need for this are `GlobalNamespace::NoteData*` the reason this has a `*` after it is because it is a class which is how most custom types work
+
+To include this file we simply need to add the line
+```cpp
+#include "main.hpp"
+
+#include "GlobalNamespace/NoteController.hpp"
+#include "beatsaber-hook/shared/utils/hooking.hpp"
+
+#include "GlobalNamespace/NoteData.hpp" // <--------
+...
+```
+
+Now we have all we need to make the hook match
+
+After the "getLogger" loop add this code
+```cpp
+...
+
+MAKE_HOOK_MATCH(NoteController_Init, &NoteController::Init, void, 
+    NoteController* self,
+    // We put args here
+) {
+    NoteController_Init(
+    	self,
+	// We put arg var names here
+    )
+};
+
+...
+```
+
+So this code will turn out to be
+
+```cpp
+...
+
+MAKE_HOOK_MATCH(NoteController_Init, &NoteController::Init, void, 
+    NoteController* self,
+    NoteData* noteData,
+    float worldRotation,
+    UnityEngine::Vector3 moveStartPos,
+    UnityEngine::Vector3 moveEndPos,
+    UnityEngine::Vector3 jumpEndPos,
+    float moveDuration,
+    float jumpDuration,
+    float jumpGravity,
+    float endRotation,
+    float uniformScale
+) {
+    NoteController_Init(
+    	self,
+	noteData,
+	worldRotation,
+	moveStartPos,
+	moveEndPos,
+	jumpEndPos,
+	moveDuration,
+	jumpDuration,
+	jumpGravity,
+	endRotation,
+	uniformScale
+    ) // This is like a callback for a function
+};
+
+...
+```
+
+Now we have our hook set out we can continue,
+
+Our original goal for this mod was to make it make every map a 360 degree map
+
+We can use the "worldRotation" variable to change what angle the block comes at us.
+
+Lets try setting it to `90`
+
+---
+
+By looking at the variable type we can tell that the "worldRotation" variable is a "float"
+a float means that it will be a decimal number, but to stop the code think its a double we have to put a `f` on the end
+
+so we need to add this line inside the hook but before the "callback" function
+
+```cpp
+worldRotation = 90.0f
+```
+
+This should set the rotation of the map to 90.
