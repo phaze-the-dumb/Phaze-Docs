@@ -40,8 +40,6 @@ And then this below the namespaces
 ```cpp
 ...
 
-using namespace GlobalNamespace;
-
 static ModInfo modInfo;
 DEFINE_CONFIG(ModConfig); // <-----
 
