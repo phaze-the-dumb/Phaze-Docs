@@ -82,5 +82,25 @@ Add this line to your includes
 ```cpp
 #include "UnityEngine/GameObject.hpp"
 ```
-Now we have that we should have a settings container
+Now we have a container we can add ui elements to it
 
+You can find a list of elements [here](./questui-reference#elements)
+
+We are going to use a button element here
+
+```cpp
+...
+
+UnityEngine::GameObject* container = BeatSaberUI::CreateScrollableSettingsContainer(self->get_transform());
+
+BeatSaberUI::CreateUIButton(container->get_transform(), "Click Me!",
+   [&]() {
+       getLogger().info("Button Clicked");
+   });
+
+...
+```
+
+Now whenever you press the button it will log to the console
+
+Find out more about logging [here](../building#logging)
