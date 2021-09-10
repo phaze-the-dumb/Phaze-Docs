@@ -10,6 +10,7 @@ bool firstActivation,
 bool addedToHierarchy,
 bool screenSystemEnabling
 ```
+Return Type: `void`
 
 ### AudioTimeSyncController_StartSong
 Called when the song is loaded
@@ -19,6 +20,7 @@ Args:
 AudioTimeSyncController* self,
 float startTimeOffset
 ```
+Return Type: `void`
 
 ### ScoreController_HandleNoteWasCut
 Called when the note was cut
@@ -29,6 +31,7 @@ ScoreController* self,
 NoteController* note,
 ByRef<GlobalNamespace::NoteCutInfo> info
 ```
+Return Type: `void`
 
 ### ScoreController_HandleNoteWasMissed
 Called when the note was missed
@@ -38,6 +41,7 @@ Args:
 ScoreController* self,
 NoteController* note
 ```
+Return Type: `void`
 
 ### ScoreController_HandleNoteWasMissed
 Called when the note was missed
@@ -47,6 +51,7 @@ Args:
 ScoreController* self,
 NoteController* note
 ```
+Return Type: `void`
 
 ### PlayerTransforms_Update
 Called when the player moves their hands or hand
@@ -55,6 +60,7 @@ Args:
 ```cpp
 PlayerTransforms* self
 ```
+Return Type: `void`
 
 ### SaberClashEffect_LateUpdate
 Called when the sabers clash good for stopping saber clash vibrations
@@ -63,6 +69,7 @@ Args:
 ```cpp
 SaberClashEffect* self
 ```
+Return Type: `void`
 
 ### NoteController_Init
 Called when a note spawns
@@ -81,6 +88,7 @@ float jumpGravity,
 float endRotation,
 float uniformScale
 ```
+Return Type: `void`
 
 ### ObstacleController_Init
 Called when a wall spawns
@@ -98,6 +106,7 @@ float move2Duration,
 float singleLineWidth,
 float height
 ```
+Return Type: `void`
 
 ### ResultsViewController_Init
 Called when the results of a song are loaded
@@ -110,6 +119,7 @@ IDifficultyBeatmap* beatmap,
 bool practice,
 bool newHighScore
 ```
+Return Type: `void`
 
 ### PlatformLeaderboardViewController_DidActivate
 Scoreboard view controller
@@ -121,3 +131,4 @@ bool firstActivation,
 bool addedToHierarchy,
 bool screenSystemEnabling
 ```
+Return Type: `void`
