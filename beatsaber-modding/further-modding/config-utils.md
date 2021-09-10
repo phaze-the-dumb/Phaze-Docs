@@ -25,7 +25,7 @@ DECLARE_CONFIG(ModConfig,
 ```
 
 #### Supported Types
-`float`, `std::string`, `int`, `double`, `char`, `bool`
+`bool`, `int`, `float`, `double`, `char*`, `const char*`, `std::string`, `UnityEngine::Vector2`, `UnityEngine::Vector3`, `UnityEngine::Vector4`, `UnityEngine::Color`
 
 for more help with variables go [here](https://www.w3schools.com/cpp/cpp_variables.asp)
 
