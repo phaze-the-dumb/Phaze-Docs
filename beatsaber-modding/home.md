@@ -7,6 +7,5 @@ This guide is aimed at beginners, If you already know alot about c++ you should 
 
 Alright, now thats done lets get no with making a beatsaber mod
 
-[Getting Started](./getting-started)
-
+[Getting Started](./getting-started)<br>
 [Further Modding](./further-modding/home)
