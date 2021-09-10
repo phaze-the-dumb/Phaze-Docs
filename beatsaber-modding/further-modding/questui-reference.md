@@ -5,7 +5,7 @@
 <details>
 <summay>Button</summary>
 <br>
-<pre>cpp
+<pre>
 BeatSaberUI::CreateUIButton(container->get_transform(), "Click Me!",
    [&]() {
        getLogger().info("Button Clicked");
