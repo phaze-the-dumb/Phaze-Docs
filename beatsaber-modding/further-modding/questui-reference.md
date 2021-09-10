@@ -3,12 +3,14 @@
 ## Elements
 
 <details>
-<summary>Button</summary>
+<summay>Button</summary>
 <br>
+<pre>
 ```cpp
 BeatSaberUI::CreateUIButton(container->get_transform(), "Click Me!",
    [&]() {
        getLogger().info("Button Clicked");
    });
 ```
+</pre>
 </details>
