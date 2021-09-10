@@ -24,6 +24,13 @@ DECLARE_CONFIG(ModConfig,
 )
 ```
 
+#### Supported Types
+`float`, `std::string`, `int`, `double`, `char`, `bool`
+
+for more help with variables go [here](https://www.w3schools.com/cpp/cpp_variables.asp)
+
+---
+
 And in `main.cpp` add this line to the includes
 ```cpp
 #include "ModConfig.hpp"
