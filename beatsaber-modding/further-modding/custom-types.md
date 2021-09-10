@@ -43,3 +43,5 @@ extern "C" void load() {
     custom_types::Register::AutoRegister(); // Add this
 }
 ```
+
+- Written By [Christoffyw](https://github.com/Christoffyw)
