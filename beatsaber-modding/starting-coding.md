@@ -1,6 +1,6 @@
 # Starting Coding
 
-## Explaining code that already there
+## Explaining code that is already there
 <a id="explaining"></a>
 
 ```cpp
