@@ -13,3 +13,4 @@ you can open the terminal in vsc (visual studio code) and run `./copy.ps1`
 You can also run `./build.ps1` this will build the mod as a `.so` file
 
 And you can run `./buildQMOD.ps1` this will build a `.qmod` file for you
+
