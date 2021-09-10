@@ -43,16 +43,6 @@ NoteController* note
 ```
 Return Type: `void`
 
-### ScoreController_HandleNoteWasMissed
-Called when the note was missed
-
-Args:
-```cpp
-ScoreController* self,
-NoteController* note
-```
-Return Type: `void`
-
 ### PlayerTransforms_Update
 Called when the player moves their hands or hand
 
