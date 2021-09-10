@@ -62,3 +62,13 @@ void DidActivate(HMUI::ViewController* self, bool firstActivation, bool addedToH
 ...
 ```
 
+If its the first time its activated we want to create a settings container
+
+```cpp
+...
+
+if(firstActivation){
+    
+} else{
+    
+...
