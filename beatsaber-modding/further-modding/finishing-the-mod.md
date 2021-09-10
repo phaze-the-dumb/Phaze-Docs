@@ -15,7 +15,7 @@ This will create the variable we need
 Now we should change the line
 
 ```cpp
-worldRotation = 0.0f
+worldRotation = 90.0f
 ```
 to
 ```cpp
