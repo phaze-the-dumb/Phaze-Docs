@@ -23,3 +23,34 @@ DECLARE_CONFIG(ModConfig,
     )
 )
 ```
+
+And in `main.cpp` add this line to the includes
+```cpp
+#include "ModConfig.hpp"
+```
+
+And then this below the namespaces
+```cpp
+...
+
+using namespace GlobalNamespace;
+
+static ModInfo modInfo;
+DEFINE_CONFIG(ModConfig); // <-----
+
+...
+```
+
+Then add this to the load function
+```cpp
+extern "C" void load() {
+    il2cpp_functions::Init();
+    getModConfig().Init(modInfo); // <------
+
+    LoggerContextObject logger = getLogger().WithContext("load");
+
+    getLogger().info("Installing hooks...");
+    // Hooks
+    getLogger().info("Installed all hooks!");
+}
+```
