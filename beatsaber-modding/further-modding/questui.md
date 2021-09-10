@@ -18,6 +18,10 @@ We need to include questui so just add this line to your includes
 ```cpp
 #include "questui/shared/QuestUI.hpp"
 ```
+And this to out namespaces
+```cpp
+using namespace QuestUI;
+```
 
 We need to update our load loop to have these two new lines in it
 
@@ -43,4 +47,18 @@ extern "C" void load() {
 ```
 
 Now we need to create our `didactivate` function 
+
+```cpp
+...
+
+void DidActivate(HMUI::ViewController* self, bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling){
+    if(firstActivation){
+        // If first time activated
+    } else{
+        // If not first time activated
+    }
+}
+
+...
+```
 
