@@ -68,9 +68,18 @@ If its the first time its activated we want to create a settings container
 ...
 
 if(firstActivation){
-    
+    UnityEngine::GameObject* container = BeatSaberUI::CreateScrollableSettingsContainer(self->get_transform());
 } else{
-    
+
+}
 ...
 ```
+
+But in here we can see that it has a `UnityEngine::GameObject*` class we need to include this class
+
+Add this line to your includes
+```cpp
+#include "UnityEngine/GameObject.hpp"
+```
+Now we have that we should have a settings container
 
