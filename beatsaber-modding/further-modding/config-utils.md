@@ -1,6 +1,6 @@
 # Config Utils
 
-Config utils alows you to store data on the quests memory
+Config utils allows you to store data on the quests memory
 
 ## Installing Config Utils
 
@@ -67,4 +67,4 @@ To set a value you can use
 ```cpp
 getModConfig.VarName.SetValue("My New Value");
 ```
-This will set that value to `My New Value`
+This will set that value to `My New Value` and it auto saves
