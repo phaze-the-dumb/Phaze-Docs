@@ -83,6 +83,7 @@ extern "C" void load() {
 
 You want to add a line to this to get hooks running properly
 
+```cpp
 extern "C" void load() {
     il2cpp_functions::Init();
 
@@ -92,3 +93,4 @@ extern "C" void load() {
     // Install our hooks (none defined yet)
     getLogger().info("Installed all hooks!");
 }
+```
