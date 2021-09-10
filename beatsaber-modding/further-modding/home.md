@@ -4,4 +4,4 @@
 - **[Custom Types](./custom-types)**
 - **[Config Utils](./config-utils)**
 - **[Quest UI Reference](./questui-reference)**
-- **[Useful Hooks](./hooks)**
+- **[Useful Hooks](./useful-hooks)**
