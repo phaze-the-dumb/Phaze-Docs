@@ -2,6 +2,13 @@
 
 Custom types is a library that lets you create types that use C# types so you can interact with the game in certain ways.
 
+## Installing Custom Types
+<a id="installing"></a>
+
+You should be able to run
+- `qpm dependency add custom-types`
+- `qpm restore`
+
 ### How to make a basic custom type
 
 To make a basic codegen class with custom types we can do the following in a header file.
