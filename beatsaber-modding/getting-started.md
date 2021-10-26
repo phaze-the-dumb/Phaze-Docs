@@ -19,7 +19,9 @@ We are going to use: [LaurieTheFish's Template](https://github.com/Lauriethefish
 # Setting up the template
 <a id="template"></a>
 
-Download and extract the template now open visual studio code
+Download and extract the template into a new folder
+
+Now open visual studio code
 
 Click on `File > Open Folder` and then select the folder that you just downloaded
 
@@ -44,7 +46,7 @@ It will then ask you for a template name put `Beatsaber Mod` here
 # Setup
 <a id="setup"></a>
 
-Now create a folder called somthing like `my-new-mod` make sure there aren't any spaces in the name of the folder or ndk will error when you try to build your mod
+Now create a new folder called somthing like `my-new-mod` make sure there aren't any spaces in the name of the folder or ndk will error when you try to build your mod
 
 Now go back to visual studio code and click on `File > Open Folder` and then select the folder that you just created
 
