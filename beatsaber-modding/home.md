@@ -1,4 +1,4 @@
-# Welcome to my beatsaber modding guide for oculus quest
+# Welcome to my beatsaber modding guide for meta quest
 
 This guide is aimed at beginners, If you already know alot about c++ you should check out
 
