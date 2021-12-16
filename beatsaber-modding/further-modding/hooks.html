@@ -3,6 +3,8 @@
 
     </head>
     <body>
+        <div class="search"><input type="text" placeholder="Search Classes" id="search"><br><br><div id="searchResults"></div></div>
+
         <div id="classes">
 
         </div>
@@ -15,6 +17,41 @@
             body{
                 margin: 0;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .search{
+                position: fixed;
+                top: 10px;
+                right: 10px; 
+                z-index: 1000;
+                opacity: 0.5;
+                transition: 0.25s;
+            }
+
+            .search:hover{
+                opacity: 1;
+            }
+
+            #search{
+                background: black;
+                border: none;
+                padding: 5px 15px; 
+                outline: none;
+                color: white; 
+                font-size: 15px; 
+                float: right;
+            }
+
+            .url{
+                background: none;
+                border: none;
+                width: 100%; 
+                color: white;
+            }
+
+            #searchResults{
+                max-height: 500px;
+                overflow: auto;
             }
 
             #classes{
@@ -69,6 +106,26 @@
 
         <script>
             let classes = document.getElementById('classes');
+            let search = document.getElementById('search');
+
+            let hookList = [];
+
+            search.onchange = (e) => {
+                let resultsDiv = document.getElementById('searchResults');
+
+                if(search.value === ""){
+                    resultsDiv.innerHTML = ""
+                } else{
+                    let results = hookList.filter(x => x.toLowerCase().includes(search.value.toLowerCase()));
+
+                    let text = ''
+                    results.forEach(x => {
+                        text += '<div class="className"" onclick="loadClass(\''+x+'\')">'+x+'</div>'
+                    })
+
+                    resultsDiv.innerHTML = text
+                }
+            }
 
             let main = async () => {
                 classes.innerHTML = '<div class="centerLoad">Loading... (Fetching Data)</div>'
@@ -79,6 +136,8 @@
                 let json = await data.json();
                 console.log('Parsed JSON');
                 classes.innerHTML = ''
+
+                hookList = json;
 
                 let text = ''
                 json.forEach(name => {
@@ -322,11 +381,23 @@
                         }
                     })
 
-                    document.getElementById('class').innerHTML = '<h1>'+className+'</h1><br>'+text
+                    document.getElementById('class').innerHTML = '<h1>'+className+'</h1><input type="text" class="url" onclick="this.select()" value="https://docs.phazed.xyz/beatsaber-modding/further-modding/hooks.html?c='+className+'"><br><br>'+text
                 })
             }
 
             main();
+
+            let className1 = getUrlParam('c', 'na');
+            console.log(className1)
+
+            if(className1 !== 'na'){
+                loadClass(className1);
+            }
+
+            function getUrlParam(parameter, defaultValue) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(parameter) || defaultValue;
+            }
         </script>
     </body>
 </html>
