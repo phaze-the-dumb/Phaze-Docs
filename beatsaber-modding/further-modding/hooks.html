@@ -101,7 +101,217 @@
                         name = name.split('double').join('<span class="double TypeName">double </span>');
                         name = name.split('char').join('<span class="char TypeName">char </span>');
 
-                        if(name.startsWith('GlobalNamespace')){
+                        if(name.startsWith('Assets')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('BeatSaberAPI')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('DataModels')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('GlobalNamespace')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('HMUI')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Il2CppInspector')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('JetBrains')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('LeaderboardsDTO')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Libraries')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('LiteNetLib')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('LIV')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('MasterServer')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Menu')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Microsoft')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('ModestTree')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Mono')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('NetEase')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('NUnit')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Oculus')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('OnlineServices')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Org')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('OVR')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('OVRSimpleJSON')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Polyglot')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Priority_Queue')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('RootMotion')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('SFB')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('System')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('TMPro')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Tweening')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Unity')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('UnityEngine')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('UnityEngineInternal')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Valve')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('VRUIControls')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else if(name.startsWith('Zenject')){
                             let words = name.split(' ');
 
                             words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'

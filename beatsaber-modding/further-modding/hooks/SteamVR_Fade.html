@@ -1,1 +1,1 @@
-void OnStartFade(UnityEngine::Color newColor, float duration, bool fadeOverlay);<br>void OnEnable();<br>void OnDisable();<br>void OnPostRender();
+UnityEngine::Color currentColor;<br>UnityEngine::Color targetColor;<br>UnityEngine::Color deltaColor;<br>UnityEngine::Color& dyn_currentColor();<br>UnityEngine::Color& dyn_targetColor();<br>UnityEngine::Color& dyn_deltaColor();<br>void OnStartFade(UnityEngine::Color newColor, float duration, bool fadeOverlay);<br>void OnEnable();<br>void OnDisable();<br>void OnPostRender();
