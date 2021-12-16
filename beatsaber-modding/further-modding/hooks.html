@@ -217,12 +217,15 @@
                 classes.innerHTML = text
             }
 
-            let loadCodegenFile = ( namespace, className, back ) => {
-                className = className.replace('*', '');
-                className = className.replace('&', '');
-                className = className.replace(',', '');
+            let loadCodegenFile = ( className, back ) => {
+                className = className.split('\'').join('"')
+                className = JSON.parse(className);
 
-                let url = 'https://docs.phazed.xyz/beatsaber-modding/further-modding/codegenheaders/'+namespace+'/'+className+'.hpp';
+                className[className.length - 1] = className[className.length - 1].replace('*', '');
+                className[className.length - 1] = className[className.length - 1].replace('&', '');
+                className[className.length - 1] = className[className.length - 1].replace(',', '');
+
+                let url = 'https://docs.phazed.xyz/beatsaber-modding/further-modding/codegenheaders/'+className.join('/')+'.hpp';
 
                 fetch(url).then(res => {
                     if(res.status === 200){
@@ -280,10 +283,7 @@
                                             if(word.startsWith('Assets::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -295,10 +295,7 @@
                                             if(word.startsWith('BeatSaberAPI::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -310,10 +307,7 @@
                                             if(word.startsWith('DataModels::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -325,10 +319,7 @@
                                             if(word.startsWith('GlobalNamespace::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -340,10 +331,7 @@
                                             if(word.startsWith('HMUI::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -355,10 +343,7 @@
                                             if(word.startsWith('Il2CppInspector::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -370,10 +355,7 @@
                                             if(word.startsWith('JetBrains::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -385,10 +367,7 @@
                                             if(word.startsWith('LeaderboardsDTO::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -400,10 +379,7 @@
                                             if(word.startsWith('Libraries::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -415,10 +391,7 @@
                                             if(word.startsWith('LiteNetLib::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -430,10 +403,7 @@
                                             if(word.startsWith('LIV::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -445,10 +415,7 @@
                                             if(word.startsWith('MasterServer::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -460,10 +427,7 @@
                                             if(word.startsWith('Menu::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -475,10 +439,7 @@
                                             if(word.startsWith('Microsoft::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -490,10 +451,7 @@
                                             if(word.startsWith('ModestTree::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -505,10 +463,7 @@
                                             if(word.startsWith('Mono::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -520,10 +475,7 @@
                                             if(word.startsWith('NetEase::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -535,10 +487,7 @@
                                             if(word.startsWith('NUnit::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -550,10 +499,7 @@
                                             if(word.startsWith('Oculus::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -565,10 +511,7 @@
                                             if(word.startsWith('OnlineServices::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -580,10 +523,7 @@
                                             if(word.startsWith('Org::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -595,10 +535,7 @@
                                             if(word.startsWith('OVR::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -610,10 +547,7 @@
                                             if(word.startsWith('OVRSimpleJSON::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -625,10 +559,7 @@
                                             if(word.startsWith('Polyglot::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -640,10 +571,7 @@
                                             if(word.startsWith('Priority_Queue::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -655,10 +583,7 @@
                                             if(word.startsWith('RootMotion::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -670,10 +595,7 @@
                                             if(word.startsWith('SFB::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -685,10 +607,7 @@
                                             if(word.startsWith('System::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -700,10 +619,7 @@
                                             if(word.startsWith('TMPro::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -715,10 +631,7 @@
                                             if(word.startsWith('Tweening::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -730,10 +643,7 @@
                                             if(word.startsWith('Unity::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -745,10 +655,7 @@
                                             if(word.startsWith('UnityEngine::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -760,10 +667,7 @@
                                             if(word.startsWith('UnityEngineInternal::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -775,10 +679,7 @@
                                             if(word.startsWith('Valve::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -790,10 +691,7 @@
                                             if(word.startsWith('VRUIControls::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -805,10 +703,7 @@
                                             if(word.startsWith('Zenject::')){
                                                 let name1 = words[i].split('::');
 
-                                                name1[1] = name1[1].replace('*', '');
-                                                name1[1] = name1[1].replace('&', '');
-
-                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+back+'\')">' + word + '</span>'
+                                                words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
                                             }
                                         })
 
@@ -824,14 +719,14 @@
                                 }
                             });
 
-                            document.getElementById('class').innerHTML = '<h1>'+namespace+'::'+className+'</h1><span onclick="loadClass(\''+back+'\')" style="text-decoration: underline;">Back</span><br>'+text
+                            document.getElementById('class').innerHTML = '<h1>'+className.join('::')+'</h1><span onclick="loadClass(\''+back+'\')" style="text-decoration: underline;">Back</span><br>'+text
                             document.getElementById('class').scrollTo(0, 0)
                         }).catch(e => {
-                            document.getElementById('class').innerHTML = '<h1>'+namespace+'::'+className+'</h1><br>Welp something went wrong!<br>Please contact Phaze#6193 with this error<br><br><div class="code">'+e+'</div>'
+                            document.getElementById('class').innerHTML = '<h1>'+className.join('::')+'</h1><span onclick="loadClass(\''+back+'\')" style="text-decoration: underline;">Back</span><br>Welp something went wrong!<br>Please contact Phaze#6193 with this error<br><br><div class="code">'+e+'</div>'
                             document.getElementById('class').scrollTo(0, 0)
                         })
                     } else{
-                        document.getElementById('class').innerHTML = '<h1>'+namespace+'::'+className+'</h1><br>Welp something went wrong!<br>Please contact Phaze#6193 with this error<br><br><div class="code">Error Code: '+res.status+'</div>'
+                        document.getElementById('class').innerHTML = '<h1>'+className.join('::')+'</h1><span onclick="loadClass(\''+back+'\')" style="text-decoration: underline;">Back</span><br>Welp something went wrong!<br>Please contact Phaze#6193 with this error<br><br><div class="code">Error Code: '+res.status+'</div>'
                         document.getElementById('class').scrollTo(0, 0)
                     }
                 }) 
@@ -842,341 +737,450 @@
 
                 fetch(url).then(res => res.text()).then(data => {
                     let text = '';
+                    let back = className
 
                     data.split('<br>').forEach(name => {
-                        name = name.split('int').join('<span class="int TypeName">int </span>');
-                        name = name.split('void').join('<span class="void TypeName">void </span>');
-                        name = name.split('float').join('<span class="float TypeName">float </span>');
-                        name = name.split('double').join('<span class="double TypeName">double </span>');
-                        name = name.split('char').join('<span class="char TypeName">char </span>');
+                        name = name.split('int ').join('<span class="TypeName">int </span>');
+                        name = name.split('void ').join('<span class="TypeName">void </span>');
+                        name = name.split('float ').join('<span class="TypeName">float </span>');
+                        name = name.split('double ').join('<span class="TypeName">double </span>');
+                        name = name.split('char ').join('<span class="TypeName">char </span>');
 
-                        if(name.startsWith('Assets')){
+                        if(name.includes('Assets::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Assets::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('BeatSaberAPI')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('BeatSaberAPI::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('BeatSaberAPI::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('DataModels')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('DataModels::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('DataModels::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('GlobalNamespace')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('GlobalNamespace::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('GlobalNamespace::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('HMUI')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('HMUI::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('HMUI::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Il2CppInspector')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Il2CppInspector::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Il2CppInspector::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('JetBrains')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('JetBrains::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('JetBrains::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('LeaderboardsDTO')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('LeaderboardsDTO::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('LeaderboardsDTO::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Libraries')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Libraries::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Libraries::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('LiteNetLib')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('LiteNetLib::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('LiteNetLib::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('LIV')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('LIV::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('LIV::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('MasterServer')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('MasterServer::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('MasterServer::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Menu')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Menu::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Menu::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Microsoft')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Microsoft::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Microsoft::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('ModestTree')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('ModestTree::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('ModestTree::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Mono')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Mono::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Mono::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('NetEase')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('NetEase::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('NetEase::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('NUnit')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('NUnit::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('NUnit::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Oculus')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Oculus::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Oculus::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('OnlineServices')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('OnlineServices::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('OnlineServices::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Org')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Org::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Org::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('OVR')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('OVR::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('OVR::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('OVRSimpleJSON')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('OVRSimpleJSON::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('OVRSimpleJSON::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Polyglot')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Polyglot::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Polyglot::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Priority_Queue')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Priority_Queue::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Priority_Queue::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('RootMotion')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('RootMotion::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('RootMotion::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('SFB')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('SFB::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('SFB::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('System')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('System::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('System::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('TMPro')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('TMPro::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('TMPro::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Tweening')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Tweening::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Tweening::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Unity')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Unity::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Unity::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('UnityEngine')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('UnityEngine::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('UnityEngine::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('UnityEngineInternal')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('UnityEngineInternal::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('UnityEngineInternal::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Valve')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Valve::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Valve::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('VRUIControls')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('VRUIControls::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('VRUIControls::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else if(name.startsWith('Zenject')){
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
+                        } else if(name.includes('Zenject::')){
                             let words = name.split(' ');
-                            let name1 = words[0].split('::');
 
-                            name1[1] = name1[1].replace('*', '');
-                            name1[1] = name1[1].replace('&', '');
+                            words.forEach((word, i) => {
+                                if(word.startsWith('Zenject::')){
+                                    let name1 = words[i].split('::');
 
-                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
-                            text += '<div class="className">'+words.join(' ')+'</div>';
-                        } else{
-                            text += '<div class="className">'+name+'</div>'
+                                    words[i] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+JSON.stringify(name1).split('"').join('\\\'')+'\', \''+back+'\')">' + word + '</span>'
+                                }
+                            })
+
+                            name = words.join(' ');
                         }
+                            
+                        text += '<div class="className">'+name+'</div>'
                     })
 
                     document.getElementById('class').innerHTML = '<h1>'+className+'</h1><input type="text" class="url" onclick="this.select()" value="https://docs.phazed.xyz/beatsaber-modding/further-modding/hooks.html?c='+className+'"><br><br>'+text
