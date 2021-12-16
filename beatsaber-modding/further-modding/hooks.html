@@ -217,7 +217,16 @@
                             name = name.split('char&nbsp;').join('<span class="TypeName">char </span>');
 
                             if(name.includes('UnityEngine::')){
-                                
+                                let words = name.split('&nbsp;');
+
+                                words.forEach((word, i) => {
+                                    if(word.startsWith('UnityEngine::')){
+                                        words[i] = '<span class="nameSpaceType">' + word + '</span>'
+                                        
+                                    }
+                                })
+
+                                name = words.join('&nbsp;');
                             }
 
                             name = name.split('static&nbsp;').join('<span class="StaticName">static </span>');
