@@ -3,8 +3,120 @@
 
     </head>
     <body>
+        <div id="classes">
+
+        </div>
+
+        <div id="class">
+
+        </div>
+
+        <style>
+            body{
+                margin: 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            #classes{
+                background: black;
+                color: white;
+                width: calc(100% - 20px);
+                height: calc(50% - 25px);
+                border-bottom: 5px solid #fff;
+                overflow: auto;
+                padding: 10px;
+            }
+
+            .className{
+                background: black;
+                color: white;
+                padding: 2px;
+            }
+
+            .className:hover{
+                background: rgb(70, 70, 70);
+                color: white;
+            }
+
+            #class{
+                background: black;
+                color: white;
+                width: calc(100% - 20px);
+                height: calc(50% - 25px);
+                border-top: 5px solid #fff;
+                overflow: auto;
+                padding: 10px;
+            }
+
+            .centerLoad{
+                position: fixed;
+                top: 25%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 50px;
+            }
+
+            .TypeName{
+                color: rgb(0, 162, 255);
+                font-style: italic;
+            }
+
+            .nameSpaceType{
+                color: rgb(255, 255, 153);
+                text-decoration: underline;
+            }
+        </style>
+
         <script>
-            fetch('https://docs.phazed.xyz/beatsaber-modding/further-modding/classList.json')
+            let classes = document.getElementById('classes');
+
+            let main = async () => {
+                classes.innerHTML = '<div class="centerLoad">Loading... (Fetching Data)</div>'
+                let data = await fetch('https://docs.phazed.xyz/beatsaber-modding/further-modding/classList.json');
+                console.log('Got Class Data')
+
+                classes.innerHTML = '<div class="centerLoad">Loading... (Parsing JSON)</div>'
+                let json = await data.json();
+                console.log('Parsed JSON');
+                classes.innerHTML = ''
+
+                let text = ''
+                json.forEach(name => {
+                    text += '<div class="className" onclick="loadClass(\''+name+'\')">'+name+'</div>'
+                })
+
+                classes.innerHTML = text
+            }
+
+            let loadClass = ( className ) => {
+                let url = 'https://docs.phazed.xyz/beatsaber-modding/further-modding/hooks/'+className+'.html';
+
+                fetch(url).then(res => res.text()).then(data => {
+                    let text = '';
+
+                    data.split('<br>').forEach(name => {
+                        name = name.split('int').join('<span class="int TypeName">int </span>');
+                        name = name.split('void').join('<span class="void TypeName">void </span>');
+                        name = name.split('float').join('<span class="float TypeName">float </span>');
+                        name = name.split('double').join('<span class="double TypeName">double </span>');
+                        name = name.split('char').join('<span class="char TypeName">char </span>');
+
+                        if(name.startsWith('GlobalNamespace')){
+                            let words = name.split(' ');
+
+                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
+
+                            text += '<div class="className">'+words.join(' ')+'</div>';
+                        } else{
+                            text += '<div class="className">'+name+'</div>'
+                        }
+                    })
+
+                    document.getElementById('class').innerHTML = '<h1>'+className+'</h1><br>'+text
+                })
+            }
+
+            main();
         </script>
     </body>
 </html>
