@@ -98,15 +98,34 @@
                 font-style: italic;
             }
 
+            .StaticName{
+                color: #7100f1;
+            }
+
+            .IncludeName{
+                color: rgb(212, 0, 142);
+            }
+
+            .strText{
+                color: rgb(0, 173, 0);
+            }
+
             .nameSpaceType{
                 color: rgb(255, 255, 153);
                 text-decoration: underline;
+            }
+
+            .comment{
+                color: gray; 
             }
         </style>
 
         <script>
             let classes = document.getElementById('classes');
             let search = document.getElementById('search');
+            let options = {
+                tabSpacing: 2
+            }
 
             let hookList = [];
 
@@ -147,6 +166,67 @@
                 classes.innerHTML = text
             }
 
+            let loadCodegenFile = ( namespace, className, back ) => {
+                let url = 'https://raw.githubusercontent.com/sc2ad/BeatSaber-Quest-Codegen/master/include/'+namespace+'/'+className+'.hpp';
+
+                fetch(url).then(res => res.text()).then(data => {
+                    let text = '';
+
+                    data.split('\r\n').forEach(name => {
+                        name = name.split('<').join('&#60;');
+                        name = name.split('>').join('&#62;');
+
+                        if(name.trim().startsWith('//')){
+                            let tabs = ''
+                            for (let index = 0; index <options.tabSpacing / 2; index++) {
+                                tabs += '&nbsp;'
+                            }
+
+                            name = name.split(' ').join(tabs);
+                            text += '<div class="className"><span class="comment">'+name+'</span></div>'
+                        } else{
+                            let tabs = ''
+                            for (let index = 0; index <options.tabSpacing / 2; index++) {
+                                tabs += '&nbsp;'
+                            }
+
+                            let intext = false;
+                            let newText = '';
+
+                            name.split('').forEach(char => {
+                                if(char === '"'){
+                                    if(intext === true){
+                                        intext = false;
+                                        newText += char+'</span>'
+                                    } else{
+                                        intext = true;
+                                        newText += '<span class="strText">'+char
+                                    }
+                                } else{
+                                    newText += char
+                                }
+                            })
+
+                            name = newText;
+                            name = name.split(' ').join(tabs);
+
+                            name = name.split('int&nbsp;').join('<span class="TypeName">int </span>');
+                            name = name.split('void&nbsp;').join('<span class="TypeName">void </span>');
+                            name = name.split('float&nbsp;').join('<span class="TypeName">float </span>');
+                            name = name.split('double&nbsp;').join('<span class="TypeName">double </span>');
+                            name = name.split('char&nbsp;').join('<span class="TypeName">char </span>');
+
+                            name = name.split('static&nbsp;').join('<span class="StaticName">static </span>');
+                            name = name.split('#include&nbsp;').join('<span class="IncludeName">#include </span>');
+
+                            text += '<div class="className">'+name+'</div>'
+                        }
+                    });
+
+                    document.getElementById('class').innerHTML = '<h1>'+namespace+'::'+className+'</h1><span onclick="loadClass(\''+back+'\')" style="text-decoration: underline;">Back</span><br>'+text
+                })
+            }
+
             let loadClass = ( className ) => {
                 let url = 'https://docs.phazed.xyz/beatsaber-modding/further-modding/hooks/'+className+'.html';
 
@@ -162,219 +242,219 @@
 
                         if(name.startsWith('Assets')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('BeatSaberAPI')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('DataModels')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('GlobalNamespace')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('HMUI')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Il2CppInspector')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('JetBrains')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('LeaderboardsDTO')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Libraries')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('LiteNetLib')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('LIV')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('MasterServer')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Menu')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Microsoft')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('ModestTree')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Mono')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('NetEase')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('NUnit')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Oculus')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('OnlineServices')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Org')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('OVR')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('OVRSimpleJSON')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Polyglot')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Priority_Queue')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('RootMotion')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('SFB')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('System')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('TMPro')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Tweening')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Unity')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('UnityEngine')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('UnityEngineInternal')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Valve')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('VRUIControls')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else if(name.startsWith('Zenject')){
                             let words = name.split(' ');
+                            let name1 = words[0].split('::');
 
-                            words[0] = '<span class="nameSpaceType">' + words[0] + '</span>'
-
+                            words[0] = '<span class="nameSpaceType" onclick="loadCodegenFile(\''+name1[0]+'\', \''+name1[1]+'\', \''+className+'\')">' + words[0] + '</span>'
                             text += '<div class="className">'+words.join(' ')+'</div>';
                         } else{
                             text += '<div class="className">'+name+'</div>'
