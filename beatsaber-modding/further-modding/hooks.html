@@ -103,11 +103,11 @@
             }
 
             .IncludeName{
-                color: rgb(212, 0, 142);
+                color: rgb(231, 0, 0);
             }
 
             .strText{
-                color: rgb(0, 173, 0);
+                color: rgb(0, 255, 0);
             }
 
             .nameSpaceType{
@@ -192,6 +192,7 @@
 
                             let intext = false;
                             let newText = '';
+                            name = name.split(' ').join(tabs);
 
                             name.split('').forEach(char => {
                                 if(char === '"'){
@@ -208,13 +209,16 @@
                             })
 
                             name = newText;
-                            name = name.split(' ').join(tabs);
 
                             name = name.split('int&nbsp;').join('<span class="TypeName">int </span>');
                             name = name.split('void&nbsp;').join('<span class="TypeName">void </span>');
                             name = name.split('float&nbsp;').join('<span class="TypeName">float </span>');
                             name = name.split('double&nbsp;').join('<span class="TypeName">double </span>');
                             name = name.split('char&nbsp;').join('<span class="TypeName">char </span>');
+
+                            if(name.includes('UnityEngine::')){
+                                
+                            }
 
                             name = name.split('static&nbsp;').join('<span class="StaticName">static </span>');
                             name = name.split('#include&nbsp;').join('<span class="IncludeName">#include </span>');
