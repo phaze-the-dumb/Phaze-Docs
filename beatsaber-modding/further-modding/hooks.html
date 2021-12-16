@@ -13,10 +13,23 @@
 
         </div>
 
+        <div id="resizer"></div>
+
         <style>
             body{
                 margin: 0;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            #resizer{
+                position: fixed;
+                left: 0;
+                width: 100%;
+                height: 10px;
+                top: 50%;
+                cursor: n-resize;
+                background: white;
+                z-index: 900;
             }
 
             .code{
@@ -128,6 +141,7 @@
         </style>
 
         <script>
+            let resizer = document.getElementById('resizer');
             let classes = document.getElementById('classes');
             let search = document.getElementById('search');
             let options = {
@@ -135,6 +149,36 @@
             }
 
             let hookList = [];
+
+            let x = 0;
+            let y = 0;
+            let moveBar = false;
+
+            window.onmousemove= e => {
+                x = e.clientX
+                y = e.clientY
+            }
+
+            resizer.onmousedown = () => {
+                moveBar = true;
+                document.body.style.userSelect = 'none';
+                setTimeout(moveBarResize, 25);
+            }
+
+            resizer.onmouseup = () => {
+                moveBar = false;
+                document.body.style.userSelect = '';
+            }
+
+            let moveBarResize = () => {
+                if(moveBar){
+                    resizer.style.top = y + 'px';
+                    classes.style.height = (y - 20) + 'px';
+                    document.getElementById('class').style.height = (window.innerHeight - y - 20) + 'px'
+
+                    setTimeout(moveBarResize, 25);
+                }
+            }
 
             search.onchange = (e) => {
                 let resultsDiv = document.getElementById('searchResults');
@@ -781,11 +825,14 @@
                             });
 
                             document.getElementById('class').innerHTML = '<h1>'+namespace+'::'+className+'</h1><span onclick="loadClass(\''+back+'\')" style="text-decoration: underline;">Back</span><br>'+text
+                            document.getElementById('class').scrollTo(0, 0)
                         }).catch(e => {
                             document.getElementById('class').innerHTML = '<h1>'+namespace+'::'+className+'</h1><br>Welp something went wrong!<br>Please contact Phaze#6193 with this error<br><br><div class="code">'+e+'</div>'
+                            document.getElementById('class').scrollTo(0, 0)
                         })
                     } else{
                         document.getElementById('class').innerHTML = '<h1>'+namespace+'::'+className+'</h1><br>Welp something went wrong!<br>Please contact Phaze#6193 with this error<br><br><div class="code">Error Code: '+res.status+'</div>'
+                        document.getElementById('class').scrollTo(0, 0)
                     }
                 }) 
             }
