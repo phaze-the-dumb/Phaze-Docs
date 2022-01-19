@@ -106,6 +106,8 @@ To do this you need to open up the file path `extern/codegen/include/GlobalNames
 
 For this example we are going to use the file `NoteController.hpp` to make any map into a 360 degree map as this hook runs whenever a note is spawned
 
+You can also use https://modtools.phazed.xyz/browser if you are more advanced
+
 We are going to start by adding three new lines
 
 
