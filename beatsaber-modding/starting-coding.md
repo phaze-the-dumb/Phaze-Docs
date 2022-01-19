@@ -96,7 +96,11 @@ extern "C" void load() {
     getLogger().info("Installed all hooks!");
 }
 ```
-Now you can have a look in codegen for a hook
+Now you can have a look in codegen for a hook.
+
+If `extern/codegen/` folder doesn't exist, you probably didn't add codegen as a dependency.
+
+You can do so by running the qpm command: `qpm dependency add "codegen"`
 
 To do this you need to open up the file path `extern/codegen/include/GlobalNamespace` in here you can find a list of files that we can hook into (mostly)
 
