@@ -47,7 +47,7 @@ Here we go.
 
 You can see there are two parts on each line.
 
-IP v   and   Server Strength v
+IP and Server Strength
 
 40.882.898.994 || Strength: 784
 
