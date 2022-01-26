@@ -48,6 +48,7 @@ Here we go.
 You can see there are two parts on each line.
 
 IP v   and   Server Strength v
+
 40.882.898.994 || Strength: 784
 
 These are both very useful, but if you want more info you can run `port-scan < ip >`.
