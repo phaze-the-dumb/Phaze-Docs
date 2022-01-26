@@ -23,7 +23,7 @@ You have a hacking skill, this increases by `+0.01` everytime you hack a server 
 
 This is the tab that allows you to interact with your servers, you can switch servers by going to the server tab and pressing the IP Adress of the server or by running the `connect < ip >` command
 
-For more information on this refer to: https://docs.phazed.xyz/bytelock/os
+For more information on this refer to: [this page](https://docs.phazed.xyz/bytelock/os)
 
 ## 5: Script Editor
 
