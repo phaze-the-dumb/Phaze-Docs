@@ -72,6 +72,7 @@ Now we want to run `attack 98.469.259.634`
 When it has finished you should get a message like this telling you that the server has been hacked
 
 Sometimes when your level is too low you will get a message like this:
+
 ![image](https://user-images.githubusercontent.com/57566773/151216392-22a67f8b-8947-44d9-a41e-a5872ff662fd.png)
 
 But don't worry this just try again with a server with lower strength.
