@@ -19,3 +19,5 @@ port-scan < ip > - Displays open ports on the server
 rm < file/folder name > - Deletes a file or folder
 ls - Lists all files/folders in the current folder
 ```
+
+More Documentaion Coming Soon...
