@@ -58,6 +58,7 @@ These are both very useful, but if you want more info you can run `port-scan < i
 Here we can see a list of ports that are open on this server.
 
 Sometimes if your user skill is to low you will get a message like this:
+
 ![image](https://user-images.githubusercontent.com/57566773/151215754-de59dd7e-3d81-4061-8c9d-d217b5ec0fd2.png)
 
 But don't worry this just select a server with a lower strength and you will be able to see the ports
