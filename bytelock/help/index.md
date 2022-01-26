@@ -30,3 +30,49 @@ For more information on this refer to: [this page](https://docs.phazed.xyz/bytel
 If you like coding, this is where you will be spending most of your time! Here you can edit scripts and save them to your server.
 
 You can make a new script or open an existing script by using the `nano < filename >` command!
+
+
+
+# Hacking our first server
+
+![image](https://user-images.githubusercontent.com/57566773/151215328-6172b26c-56d4-4f8b-8979-846c44166c80.png)
+Moving over to the terminal page you can test a command, try typing `help` next to the path at the bottom
+
+This will list all the commands you can use, lets try running `scan` to see what servers you can find.
+
+![image](https://user-images.githubusercontent.com/57566773/151215514-3e3950d0-a0a8-415b-af43-b18df7c6be97.png)
+Here we go.
+
+You can see there are two parts on each line.
+
+IP v   and   Server Strength v
+40.882.898.994 || Strength: 784
+
+These are both very useful, but if you want more info you can run `port-scan < ip >`.
+
+![image](https://user-images.githubusercontent.com/57566773/151215805-11660aa1-4ead-4729-a03d-6a60d4827dc7.png)
+Here we can see a list of ports that are open on this server.
+
+Sometimes if your user skill is to low you will get a message like this:
+![image](https://user-images.githubusercontent.com/57566773/151215754-de59dd7e-3d81-4061-8c9d-d217b5ec0fd2.png)
+
+But don't worry this just select a server with a lower strength and you will be able to see the ports
+
+### Ok, but how do i hack the server?
+
+Good question! First you want to find the ip of the server, in this case the ip is `98.469.259.634`
+
+Now we want to run `attack 98.469.259.634`
+![image](https://user-images.githubusercontent.com/57566773/151216294-f275abc7-2f84-40b7-8778-c62fda46695d.png)
+
+When it has finished you should get a message like this telling you that the server has been hacked
+
+Sometimes when your level is too low you will get a message like this:
+![image](https://user-images.githubusercontent.com/57566773/151216392-22a67f8b-8947-44d9-a41e-a5872ff662fd.png)
+
+But don't worry this just try again with a server with lower strength.
+
+Now we can head over to the "Servers" tab and click the start button next to our server
+![image](https://user-images.githubusercontent.com/57566773/151216618-26dad7ad-906e-4e23-acd0-ec35aee2326d.png)
+
+There you go you hacked your first server!
