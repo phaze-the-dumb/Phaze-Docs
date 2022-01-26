@@ -36,11 +36,13 @@ You can make a new script or open an existing script by using the `nano < filena
 # Hacking our first server
 
 ![image](https://user-images.githubusercontent.com/57566773/151215328-6172b26c-56d4-4f8b-8979-846c44166c80.png)
+
 Moving over to the terminal page you can test a command, try typing `help` next to the path at the bottom
 
 This will list all the commands you can use, lets try running `scan` to see what servers you can find.
 
 ![image](https://user-images.githubusercontent.com/57566773/151215514-3e3950d0-a0a8-415b-af43-b18df7c6be97.png)
+
 Here we go.
 
 You can see there are two parts on each line.
@@ -51,6 +53,7 @@ IP v   and   Server Strength v
 These are both very useful, but if you want more info you can run `port-scan < ip >`.
 
 ![image](https://user-images.githubusercontent.com/57566773/151215805-11660aa1-4ead-4729-a03d-6a60d4827dc7.png)
+
 Here we can see a list of ports that are open on this server.
 
 Sometimes if your user skill is to low you will get a message like this:
