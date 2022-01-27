@@ -48,25 +48,18 @@ extern "C" void load() {
 ```
 This is where we can install our hooks and UI functions (this function is called slightly later than the previous)<br>
 
-## Using QPM
+## Using QPM-Rust
 <a id="qpm"></a>
 
-There are two ways of using qpm
+There are one way of using qpm-rust
 
-1)
-> This is easier but isn't always avalible
-> 
-> First of all you need to open the qpm [repo](https://github.com/sc2ad/QuestPackageManager/actions) on the actions tab you want to click on the action at the top (the latest) and scroll to the very bottom of that page if it has a file called "Win-insaller" you can download that and just run it if not you will have to use the second option
-
-2)
-> This is harder but the main way to install qpm
 >
-> First of all you need to open the qpm [repo](https://github.com/sc2ad/QuestPackageManager/actions) on the actions tab you want to click on the action at the top (the latest) and scroll to the very bottom of that page (this is only showing how to do this on windows (im not sure how to do this on linux or mac))
-> Download the file called `QPM-win-x64` and extract the zip to a good location (somthing like `C:\Program Files\QPM`)
+> First of all you need to open the qpm-rust [repo](https://github.com/sc2ad/QuestPackageManager/actions) on the actions tab you want to click on the action at the top (the latest) and scroll to the very bottom of that page (this is only showing how to do this on windows (im not sure how to do this on linux or mac))
+> Download the file called `windows-qpm-rust.exe` and extract the zip to a good location (somthing like `C:\Program Files\QPM-rust`)
 > Now open start and search `Advanced system settings` you will have to give it admin access to run
-> Now you want to click environment variables and under `system variables` select path then click `new` and enter the path that you extracted qpm to.
+> Now you want to click environment variables and under `system variables` select path then click `new` and enter the path that you extracted qpm-rust to.
 
-Now you have QPM installed open up visual studio code and click `terminal > new terminal` you now want to run the command `qpm restore` this may take a while as there are alot of files qpm has to download.
+Now you have QPM-Rust installed open up visual studio code and click `terminal > new terminal` you now want to run the command `qpm-rust restore` this may take a while as there are alot of files qpm-rust has to download.
 
 ## Understanding The Hook System
 
@@ -100,7 +93,7 @@ Now you can have a look in codegen for a hook.
 
 If `extern/codegen/` folder doesn't exist, you probably didn't add codegen as a dependency.
 
-You can do so by running the qpm command: `qpm dependency add "codegen"`
+You can do so by running the qpm-rust command: `qpm-rust dependency add "codegen"`
 
 To do this you need to open up the file path `extern/codegen/include/GlobalNamespace` in here you can find a list of files that we can hook into (mostly)
 
