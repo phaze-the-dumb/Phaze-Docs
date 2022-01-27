@@ -8,8 +8,8 @@ Quest UI is a library designed to make constructing Beatsaber UIs easier
 <a id="installing"></a>
 
 You should be able to run
-- `qpm dependency add questui`
-- `qpm restore`
+- `qpm-rust dependency add questui`
+- `qpm-rust restore`
 
 ## Creating a settings menu
 <a id="settings-menu"></a>
