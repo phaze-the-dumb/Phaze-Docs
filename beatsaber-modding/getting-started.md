@@ -10,7 +10,7 @@ Here is a list of applications you will need to help you make a beatsaber mod:
 
 [Andriod ADB](https://developer.android.com/studio/releases/platform-tools)
 
-[Quest Package Manager](https://github.com/sc2ad/questpackagemanager)
+[Quest Package Manager](https://github.com/RedBrumbler/QuestPackageManager-Rust)
 
 ### Once we have that we need a template to start a project:
 

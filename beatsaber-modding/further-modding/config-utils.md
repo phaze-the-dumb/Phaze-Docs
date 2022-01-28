@@ -5,8 +5,8 @@ Config utils allows you to store data on the quests memory
 ## Installing Config Utils
 
 Just run
-- `qpm dependency add config-utils`
-- `qpm restore`
+- `qpm-rust dependency add config-utils`
+- `qpm-rust restore`
 
 ## Setting Up Config Utils
 
