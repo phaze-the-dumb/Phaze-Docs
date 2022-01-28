@@ -51,15 +51,11 @@ This is where we can install our hooks and UI functions (this function is called
 ## Using QPM-Rust
 <a id="qpm"></a>
 
-There are one way of using qpm-rust
+First of all you need to open the qpm-rust [repo](https://github.com/sc2ad/QuestPackageManager/actions) on the actions tab you want to click on the action at the top (the latest) and scroll to the very bottom of that page.
 
->
-> First of all you need to open the qpm-rust [repo](https://github.com/sc2ad/QuestPackageManager/actions) on the actions tab you want to click on the action at the top (the latest) and scroll to the very bottom of that page (this is only showing how to do this on windows (im not sure how to do this on linux or mac))
-> Download the file called `windows-qpm-rust.exe` and extract the zip to a good location (somthing like `C:\Program Files\QPM-rust`)
-> Now open start and search `Advanced system settings` you will have to give it admin access to run
-> Now you want to click environment variables and under `system variables` select path then click `new` and enter the path that you extracted qpm-rust to.
+Download the qpm rust executable for your platform and install it. Place it in a folder and add that folder to path for later use.
 
-Now you have QPM-Rust installed open up visual studio code and click `terminal > new terminal` you now want to run the command `qpm-rust restore` this may take a while as there are alot of files qpm-rust has to download.
+Run the command `qpm-rust restore` this may take a while, but won't take long in the future due to caching.
 
 ## Understanding The Hook System
 
