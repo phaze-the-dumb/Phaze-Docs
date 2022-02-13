@@ -4,7 +4,7 @@ Endpoint: `https://skywave.zenithmmo.com/api/`
 
 The API Key has always been `fab1f50a-a92a-4bae-95df-3dad3cbd0fc1` or so I can assume.
 
-**__Authentication__**
+## Authentication
 
 URL: `/api/auth/login`
 
@@ -19,7 +19,7 @@ The response takes 2 main forms as json if there is an error:
  - `{ error: true, message: 'Unauthorized Request.' }`
 Or as a string which is a token, you should store this in a file for now so you don't have to keep requesting the login API
 
-**__Account Data__**
+## Account Data
 
 URL: `/api/info/me`
 
@@ -31,7 +31,7 @@ Payload:
 
 Response is a JSON object
 
-**__Friends Data__**
+## Friends Data
 
 URL: `/api/info/friends`
 
@@ -43,7 +43,7 @@ Payload:
 
 Response is a JSON array
 
-**__Character Data__**
+## Character Data
 
 URL: `/api/info/characters`
 
