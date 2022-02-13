@@ -15,9 +15,7 @@ Payload:
  - usernameOrEmail: `Username Or Email Here`
  - password: `Password Here`
 
-The response takes 2 main forms as json if there is an error:
- - `{ error: true, message: 'Unauthorized Request.' }`
-Or as a string which is a token, you should store this in a file for now so you don't have to keep requesting the login API
+The response takes 2 main forms as json if there is an error: `{ error: true, message: 'Unauthorized Request.' }` or as a string which is a token, you should store this in a file for now so you don't have to keep requesting the login API
 
 ## Account Data
 
