@@ -4,7 +4,6 @@
 1) Make sure you have firefox and nodejs installed
 
 - Firefox: [https://www.mozilla.org/en-GB/firefox/new/](https://www.mozilla.org/en-GB/firefox/new/)
-    
 - NodeJS: [https://nodejs.org](https://nodejs.org)
  
 2) Download / Clone the repo ([https://github.com/phaze-the-dumb/vrcstatus](https://github.com/phaze-the-dumb/vrcstatus))
