@@ -9,6 +9,9 @@
 2) Download / Clone the repo ([https://github.com/phaze-the-dumb/vrcstatus](https://github.com/phaze-the-dumb/vrcstatus))
 
 ## Setting Up Firefox
+
+You can ignore the next 3 steps and just click [here](https://addons.mozilla.org/firefox/downloads/file/4001078/754f86ab00304dadae27-0.1.xpi) as mozilla has approved the extension now
+
 3) Open firefox and go to `about:debugging`
 
 4) Click `This Firefox` on the left of your screen
