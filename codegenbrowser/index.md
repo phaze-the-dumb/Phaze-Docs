@@ -8,6 +8,7 @@
 ![Add Version](https://i.phazed.xyz/?11H1645ayz2BZ)
 
 2) Open the OculusDB Page and click the download button
+
 **Note: Make sure you are logged into the oculus website**
 
 3) Add the game version and apk into the application
@@ -16,6 +17,7 @@
 3) Click the next button on the side of the screen
 
 4) Wait for the file to finish computing (This may take a while)
+
 **Note: On Version `0.1.0` you will need to click the browser tab on the sidebar again as it doesn't load the first time**
 
 5) If at any point during this process it stops working dm `Phaze#6193` and ask me about it as I cannot be bothered to write debugging documentation right now
