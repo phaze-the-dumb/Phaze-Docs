@@ -2,7 +2,7 @@
 
 **This guide was written around the 1.17 era of beatsaber modding, while many of the things I talk about in this guide may still work, a lot has changed**
 
-**I am no longer maintaining this since I left the beatsaber modding scene ages ago, If you want to continue maintaining it dm me on discord `_phaz`**
+**I am no longer maintaining this since I left the beatsaber modding scene ages ago, If you want to continue maintaining it, dm me on discord `_phaz`**
 
 # Getting Started
 
